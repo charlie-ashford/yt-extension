@@ -23,7 +23,13 @@ function applyGridItemsPerRow(videosPerRow) {
       return;
     }
 
-    // Use responsive calculation for max-width based on viewport and grid columns
+    // Apply the custom grid settings - make the grid "auto"
+    gridRenderer.style.setProperty(
+      '--ytd-rich-grid-items-per-row',
+      'auto'
+    );
+
+    // Calculate and set the max-width for each grid item
     const viewportWidth = Math.max(
       document.documentElement.clientWidth || 0,
       window.innerWidth || 0
@@ -34,16 +40,17 @@ function applyGridItemsPerRow(videosPerRow) {
       Math.floor(availableWidth / videosPerRow) - 16
     );
 
-    // Apply the custom grid settings
-    gridRenderer.style.setProperty(
-      '--ytd-rich-grid-items-per-row',
-      videosPerRow
-    );
+    // Set the max width based on user setting, but let the items flow naturally
     gridRenderer.style.setProperty(
       '--ytd-rich-grid-item-max-width',
       `${maxWidth}px`
     );
     gridRenderer.style.setProperty('--ytd-rich-grid-item-margin', '16px');
+
+    // CSS to handle wrapping and prevent gaps (MOST IMPORTANT PART)
+    gridRenderer.style.display = 'flex'; // Use flexbox layout
+    gridRenderer.style.flexWrap = 'wrap'; // Allow items to wrap to the next line
+    gridRenderer.style.justifyContent = 'flex-start'; // Align items to the left
   } catch (error) {
     console.error('Error in applyGridItemsPerRow:', error);
     // Don't throw, just log the error
