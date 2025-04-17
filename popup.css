@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff;
+  color: #222;
+  width: 260px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+h1 {
+  font-size: 1.2rem;
+  margin: 0 0 10px 0;
+  color: #1a73e8;
+  text-align: center;
+}
+
+label {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+select {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1.5px solid #ccc;
+  transition: border-color 0.3s ease;
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+  border-color: #1a73e8;
+  box-shadow: 0 0 5px rgba(26, 115, 232, 0.5);
+}
+
+button#refreshBtn {
+  margin-top: 10px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button#refreshBtn:hover {
+  background-color: #155ab6;
+}
+
+.note {
+  font-size: 0.85rem;
+  color: #555;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* New styles for status messages */
+.status-message {
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-top: 10px;
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.status-message.success {
+  background-color: #e6f4ea;
+  color: #137333;
+  border: 1px solid #137333;
+}
+
+.status-message.error {
+  background-color: #fce8e6;
+  color: #c5221f;
+  border: 1px solid #c5221f;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

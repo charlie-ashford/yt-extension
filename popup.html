@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>YouTube Grid Customizer</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>YouTube Grid Customizer</h1>
+      <label for="videosPerRow">Videos per row:</label>
+      <select id="videosPerRow" aria-label="Select number of videos per row">
+        <option value="3">3</option>
+        <option value="4" selected>4 (default)</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+      </select>
+
+      <button id="refreshBtn" title="Refresh page to apply changes">
+        Refresh to apply changes
+      </button>
+
+      <p class="note">Changes apply automatically on YouTube homepage.</p>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
