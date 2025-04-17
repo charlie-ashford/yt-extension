@@ -1,97 +1,163 @@
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f2f5;
+  font-family: Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
   color: #333;
   width: 300px;
-  padding: 20px;
+  min-height: 280px;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  padding: 20px;
+  gap: 12px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+  gap: 8px;
+}
+
+.logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
 
 h1 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin: 0;
-  color: #d32f2f;
-  text-align: center;
+  color: #e44d26;
+  font-weight: 500;
+}
+
+.divider {
+  height: 1px;
+  background-color: #ddd;
+  margin: 8px -20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 label {
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
+  color: #555;
 }
 
 select {
-  padding: 10px;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
   background-color: #fff;
   color: #333;
   cursor: pointer;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23777' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  padding-right: 24px;
 }
 
+select:hover,
 select:focus {
+  border-color: #aaa;
   outline: none;
-  border-color: #d32f2f;
-  box-shadow: 0 0 5px rgba(211, 47, 47, 0.3);
 }
 
 button#refreshBtn {
-  padding: 12px 15px;
-  font-size: 1.1rem;
-  background-color: #d32f2f;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  background-color: #e44d26;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  font-weight: 500;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+button#refreshBtn::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M23 4v6h-6'/%3E%3Cpath d='M20.49 15a9 9 0 1 1-2.12-9.36L23 10'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 button#refreshBtn:hover {
-  background-color: #b71c1c;
+  background-color: #d1401c;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+button#refreshBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .note {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #777;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 6px;
+  font-style: italic;
 }
 
 .status-message {
-  font-size: 1rem;
+  font-size: 0.85rem;
   text-align: center;
-  padding: 10px;
-  border-radius: 6px;
-  margin-top: 15px;
-  display: none;
-  animation: fadeIn 0.3s ease;
+  padding: 6px;
+  border-radius: 4px;
+  margin-top: 8px;
+  opacity: 0;
+  visibility: hidden;
+  font-weight: 500;
+  min-height: 18px;
+  box-sizing: border-box;
+  transition: opacity 0.2s ease;
+}
+
+.status-message.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 .status-message.success {
   background-color: #e8f5e9;
-  color: #388e3c;
-  border: 1px solid #388e3c;
+  color: #2e7d32;
+  border: 1px solid rgba(46, 125, 50, 0.2);
 }
 
 .status-message.error {
   background-color: #ffebee;
-  color: #d32f2f;
-  border: 1px solid #d32f2f;
+  color: #c62828;
+  border: 1px solid rgba(198, 40, 40, 0.2);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.footer {
+  font-size: 0.75rem;
+  color: #888;
+  text-align: center;
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid #eee;
 }
