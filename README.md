@@ -47,6 +47,23 @@ Since this extension is not available on the Chrome Web Store, you need to insta
 4.  **Persistent Settings:**
     - Your chosen number of videos per row will be saved and will be applied automatically the next time you visit YouTube.
 
+## Images
+
+<img src="image1.png" width="60%">
+<p style="margin-top: 4px; font-size: 14px; text-align: center; width: 60%;">
+  <i>4 videos per row</i>
+</p>
+
+<img src="image2.png" width="60%">
+<p style="margin-top: 4px; font-size: 14px; text-align: center; width: 60%;">
+  <i>6 videos per row</i>
+</p>
+
+<img src="image3.png" width="60%">
+<p style="margin-top: 4px; font-size: 14px; text-align: center; width: 60%;">
+  <i>3 videos per row with popup open</i>
+</p>
+
 ## Troubleshooting
 - **Changes Not Applying:**
   - Try refreshing the YouTube page.
